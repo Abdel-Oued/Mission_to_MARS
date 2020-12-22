@@ -18,6 +18,12 @@ class RocketTest {
     }
 
     @Test
+    @DisplayName("test if the rocket can not carry")
+    void canCarryFailedTest() {
+        assertTrue(!(rocket.canCarry(new Item(25))));
+    }
+
+    @Test
     @DisplayName("test if the item is carried")
     void carrySuccesTest() {
         rocket.carry(new Item(5));
@@ -26,7 +32,7 @@ class RocketTest {
     }
 
     @Test
-    @DisplayName("test if the item is carried")
+    @DisplayName("test if the item is not carried")
     void carryFailedTest() {
         rocket.carry(new Item(9));
         assertNotEquals(19, rocket.currentWeight);
