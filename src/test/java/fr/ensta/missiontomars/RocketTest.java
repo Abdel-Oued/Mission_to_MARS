@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @Nested
 @DisplayName("When a Rocket has been created")
 class RocketTest {
-    private final Rocket rocket = new Rocket(10, 18);
+    private final Rocket rocket = new Rocket(10, 18, 100);
 
     @Test
     @DisplayName("test if the rocket can carry")

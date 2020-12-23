@@ -1,14 +1,16 @@
 package fr.ensta.missiontomars;
 
 public class Rocket implements SpaceShip {
+    protected int cost;
     protected int weight;  // poids de la rocket vide
     protected int maxWeight;  // poids de la rocket vide + poids de charge maximale
     protected int currentWeight;  // poids de la rocket vide + charge actuelle
 
-    public Rocket(int weight, int maxWeight) {
+    public Rocket(int weight, int maxWeight, int cost) {
         this.weight = weight;
         this.maxWeight = maxWeight;
         this.currentWeight = weight;  // A la création, la rocket est vide
+        this.cost = cost;
     }
 
     public boolean launch(){

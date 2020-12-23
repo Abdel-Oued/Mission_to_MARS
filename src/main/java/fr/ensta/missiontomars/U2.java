@@ -9,7 +9,7 @@ public class U2 extends Rocket{
     public static Random alea = new Random();
 
     public U2(){
-        super(18, 29);
+        super(18, 29, 120);
     }
 
     public boolean launch(){

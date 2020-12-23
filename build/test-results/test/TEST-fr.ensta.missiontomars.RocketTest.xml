@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="fr.ensta.missiontomars.RocketTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2020-12-23T11:04:16" hostname="ODG" time="0.039">
+  <properties/>
+  <testcase name="carrySuccesTest()" classname="fr.ensta.missiontomars.RocketTest" time="0.028"/>
+  <testcase name="canCarryTest()" classname="fr.ensta.missiontomars.RocketTest" time="0.003"/>
+  <testcase name="carryFailedTest()" classname="fr.ensta.missiontomars.RocketTest" time="0.002"/>
+  <testcase name="canCarryFailedTest()" classname="fr.ensta.missiontomars.RocketTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
