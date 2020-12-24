@@ -7,7 +7,7 @@ import java.util.ListIterator;
 public class Simulation {
 
     public ArrayList<Item> loadItems(String filename) {
-        ArrayList<Item> itemsList = new ArrayList<Item>();
+        ArrayList<Item> itemsList = new ArrayList<>();
         try {
             File file = new File(filename);
             BufferedReader reader= new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
@@ -38,13 +38,12 @@ public class Simulation {
         U1 u1 = new U1();
         u1List.add(u1);
 
-        ListIterator<Item> iterItem = itemsList.listIterator();
-        while (iterItem.hasNext()){
-            if(!u1.canCarry(iterItem.next())) {
+        for (Item item : itemsList){
+            if(!u1.canCarry(item)) {
                 u1 = new U1();
                 u1List.add(u1);
             }
-            u1.carry(iterItem.next());
+            u1.carry(item);
         }
         return u1List;
     }
@@ -54,13 +53,12 @@ public class Simulation {
         U2 u2 = new U2();
         u2List.add(u2);
 
-        ListIterator<Item> iterItem = itemsList.listIterator();
-        while (iterItem.hasNext()){
-            if(!u2.canCarry(iterItem.next())) {
+        for (Item item : itemsList){
+            if(!u2.canCarry(item)) {
                 u2 = new U2();
                 u2List.add(u2);
             }
-            u2.carry(iterItem.next());
+            u2.carry(item);
         }
         return u2List;
     }
@@ -68,11 +66,10 @@ public class Simulation {
     public int runSimulation(ArrayList<Rocket> rocketsList){
         int budget = 0;
 
-        ListIterator<Rocket> iterRocket = rocketsList.listIterator();
-        while (iterRocket.hasNext()){
-            budget += iterRocket.next().cost;
-            while(!iterRocket.next().launch() || !iterRocket.next().land()){
-                budget += iterRocket.next().cost;
+        for (Rocket rocket : rocketsList){
+            budget += rocket.cost;
+            while(!rocket.launch() || !rocket.land()){
+                budget += rocket.cost;
             }
         }
         return budget;
