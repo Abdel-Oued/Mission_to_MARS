@@ -63,6 +63,28 @@ public class Simulation {
         return u2List;
     }
 
+    public ArrayList<Rocket> load(ArrayList<Item> itemsList){
+        ArrayList<Rocket> rocketList = new ArrayList<>();
+        Rocket rocket = new U1();
+        rocketList.add(rocket);
+
+        for (Item item : itemsList){
+            if(rocket.currentWeight + item.getWeight() > rocket.maxWeight - 4) {
+                if (item.getWeight() > 4)
+                    rocket = new U2();
+                else
+                    rocket = new U1();
+                rocketList.add(rocket);
+            }
+            if(item.getName().equals("colony")){
+                rocket = new U2();
+                rocketList.add(rocket);
+            }
+            rocket.carry(item);
+        }
+        return rocketList;
+    }
+
     public int runSimulation(ArrayList<Rocket> rocketsList){
         int budget = 0;
 
