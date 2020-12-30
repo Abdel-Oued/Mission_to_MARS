@@ -11,14 +11,13 @@ public class Main {
                 "2 - pour une flotte de rockets U2 uniquement\n" +
                 "3 - pour une flotte de rockets U1 pour la phase 1 et U2 pour la phase 2\n" +
                 "4 - pour une flotte de rockets U1 pour la phase 2 et U2 pour la phase 1\n" +
-                "5 - pour une flotte de rockets U2 pour les personnes\n"
+                "5 - pour une flotte de rockets U2 pour les personnes\n" +
+                "6 - pour une flotte de rockets U2 pour les personnes optimisée\n"
         );
 
         Scanner sc = new Scanner(System.in);
         int config = sc.nextInt();
 
-        int budgetTotal = 0;
-        int budgetMoyen = 0;
         int budgetParfait = 0;
         int nbrSimulation = 1000000;
         int nbrReussite = 0;
@@ -48,7 +47,6 @@ public class Main {
 
             for (i = 0; i<nbrSimulation; i++ ) {
                 budget = simulation.runSimulation(fleetU1);            // simulation avec la flotte de U1
-                budgetTotal += budget;
                 if (budget == budgetParfait){
                     nbrReussite += 1;
                 }
@@ -59,12 +57,11 @@ public class Main {
             pourcentageReussite = nbrReussite*100/nbrSimulation;
             pourcentageUnSeulEchec = nbrUnSeulEchec*100/nbrSimulation;
 
-            budgetMoyen = budgetTotal / nbrSimulation;
 
             System.out.println("Résultats de la simulation\n" +
                     "Pourcentage de réussite : " + pourcentageReussite +
                     "\nPourcentage d'avoir un seul échec : " + pourcentageUnSeulEchec +
-                    "\nbudgetMoyen = " + budgetMoyen);
+                    "\nbudget en cas de réussite = " + budgetParfait);
         }
 
         else if(config == 2) {
@@ -84,7 +81,6 @@ public class Main {
 
             for (i = 0; i<nbrSimulation; i++ ) {
                 budget = simulation.runSimulation(fleetU2);            // simulation avec la flotte de U2
-                budgetTotal += budget;
                 if (budget == budgetParfait){
                     nbrReussite += 1;
                 }
@@ -95,12 +91,10 @@ public class Main {
             pourcentageReussite = nbrReussite*100/nbrSimulation;
             pourcentageUnSeulEchec = nbrUnSeulEchec*100/nbrSimulation;
             
-            budgetMoyen = budgetTotal / nbrSimulation;
-            
             System.out.println("Résultats de la simulation\n" +
                     "Pourcentage de réussite : " + pourcentageReussite +
                     "\nPourcentage d'avoir un seul échec : " + pourcentageUnSeulEchec +
-                    "\nbudgetMoyen = " + budgetMoyen);
+                    "\nbudget en cas de réussite = " + budgetParfait);
         }
 
         if(config == 3) {
@@ -122,7 +116,6 @@ public class Main {
 
             for (i = 0; i<nbrSimulation; i++ ) {
                 budget = simulation.runSimulation(fleet);            // simulation avec la flotte mixte
-                budgetTotal += budget;
                 if (budget == budgetParfait){
                     nbrReussite += 1;
                 }
@@ -133,13 +126,11 @@ public class Main {
             pourcentageReussite = nbrReussite*100/nbrSimulation;
             pourcentageUnSeulEchec = nbrUnSeulEchec*100/nbrSimulation;
 
-            budgetMoyen = budgetTotal / nbrSimulation;
 
             System.out.println("Résultats de la simulation\n" +
                     "Pourcentage de réussite : " + pourcentageReussite +
                     "\nPourcentage d'avoir un seul échec : " + pourcentageUnSeulEchec +
-                    "\nbudget en cas de réussite = " + budgetParfait +
-                    "\nbudget moyen = " + budgetMoyen);
+                    "\nbudget en cas de réussite = " + budgetParfait);
         }
 
         if(config == 4) {
@@ -161,7 +152,6 @@ public class Main {
 
             for (i = 0; i<nbrSimulation; i++ ) {
                 budget = simulation.runSimulation(fleet);            // simulation avec la flotte mixte
-                budgetTotal += budget;
                 if (budget == budgetParfait){
                     nbrReussite += 1;
                 }
@@ -172,19 +162,16 @@ public class Main {
             pourcentageReussite = nbrReussite*100/nbrSimulation;
             pourcentageUnSeulEchec = nbrUnSeulEchec*100/nbrSimulation;
 
-            budgetMoyen = budgetTotal / nbrSimulation;
-
             System.out.println("Résultats de la simulation\n" +
                     "Pourcentage de réussite : " + pourcentageReussite +
                     "\nPourcentage d'avoir un seul échec : " + pourcentageUnSeulEchec +
-                    "\nbudget en cas de réussite = " + budgetParfait +
-                    "\nbudgetMoyen = " + budgetMoyen);
+                    "\nbudget en cas de réussite = " + budgetParfait);
         }
 
         if(config == 5) {
 
-            ArrayList<Rocket> fleet = simulation.load(phase1Items);  // convoit de U1 pour la phase 1
-            fleet.addAll(simulation.load(phase2Items));              // plus convoit de U2  pour la phase 2
+            ArrayList<Rocket> fleet = simulation.load(phase1Items);
+            fleet.addAll(simulation.load(phase2Items));
 
             int i = 1;
             for (Rocket rocket : fleet) {
@@ -200,7 +187,6 @@ public class Main {
 
             for (i = 0; i<nbrSimulation; i++ ) {
                 budget = simulation.runSimulation(fleet);            // simulation avec la flotte mixte
-                budgetTotal += budget;
                 if (budget == budgetParfait){
                     nbrReussite += 1;
                 }
@@ -211,13 +197,45 @@ public class Main {
             pourcentageReussite = nbrReussite*100/nbrSimulation;
             pourcentageUnSeulEchec = nbrUnSeulEchec*100/nbrSimulation;
 
-            budgetMoyen = budgetTotal / nbrSimulation;
+            System.out.println("Résultats de la simulation\n" +
+                    "Pourcentage de réussite : " + pourcentageReussite +
+                    "\nPourcentage d'avoir un seul échec : " + pourcentageUnSeulEchec +
+                    "\nbudget en cas de réussite = " + budgetParfait);
+        }
+
+        if(config == 6) {
+
+            ArrayList<Rocket> fleet = simulation.load2(phase1Items);
+            fleet.addAll(simulation.load2(phase2Items));
+
+            int i = 1;
+            for (Rocket rocket : fleet) {
+                budgetParfait += rocket.cost;
+                if(rocket.cost == 100)
+                    System.out.println("U1 " + i + " = " + rocket.currentWeight);
+                else
+                    System.out.println("U2 " + i + " = " + rocket.currentWeight);
+                i++;
+            }
+
+            int budget;
+
+            for (i = 0; i<nbrSimulation; i++ ) {
+                budget = simulation.runSimulation(fleet);            // simulation avec la flotte mixte
+                if (budget == budgetParfait){
+                    nbrReussite += 1;
+                }
+                if (budget == budgetParfait + 100 || budget == budgetParfait + 120){
+                    nbrUnSeulEchec += 1;
+                }
+            }
+            pourcentageReussite = nbrReussite*100/nbrSimulation;
+            pourcentageUnSeulEchec = nbrUnSeulEchec*100/nbrSimulation;
 
             System.out.println("Résultats de la simulation\n" +
                     "Pourcentage de réussite : " + pourcentageReussite +
                     "\nPourcentage d'avoir un seul échec : " + pourcentageUnSeulEchec +
-                    "\nbudget en cas de réussite = " + budgetParfait +
-                    "\nbudget moyen = " + budgetMoyen);
+                    "\nbudget en cas de réussite = " + budgetParfait);
         }
     }
 }

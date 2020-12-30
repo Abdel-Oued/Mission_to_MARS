@@ -69,20 +69,75 @@ public class Simulation {
         rocketList.add(rocket);
 
         for (Item item : itemsList){
-            if(rocket.currentWeight + item.getWeight() > rocket.maxWeight - 4) {
+            if(item.getName().equals("colony")){
+                rocket = new U2();
+                rocketList.add(rocket);
+            }
+            else if(rocket.currentWeight + item.getWeight() > rocket.maxWeight - 3) {
                 if (item.getWeight() > 4)
                     rocket = new U2();
                 else
                     rocket = new U1();
                 rocketList.add(rocket);
             }
-            if(item.getName().equals("colony")){
-                rocket = new U2();
-                rocketList.add(rocket);
-            }
+
             rocket.carry(item);
         }
         return rocketList;
+    }
+
+    public ArrayList<Rocket> load2(ArrayList<Item> itemsList){
+        ArrayList<Rocket> rocketList = new ArrayList<>();
+        ArrayList<Item> itemsCarried;
+
+        while(!itemsList.isEmpty()) {
+            itemsCarried = new ArrayList<>();
+            Rocket rocket = new U2();
+            rocketList.add(rocket);
+
+            for (Item item : itemsList){
+                if(item.getName().equals("colony") & rocket.currentWeight == rocket.weight){
+                    rocket.carry(item);
+                    itemsCarried.add(item);
+                    break;
+                    //rocket = new U2();
+                    //rocketList.add(rocket);
+                }
+                if(rocket.currentWeight + item.getWeight() > rocket.maxWeight - 3) {
+                    continue;
+                    //rocket = new U2();
+                    //rocketList.add(rocket);
+                }
+                else {
+                    rocket.carry(item);
+                    itemsCarried.add(item);
+                }
+            }
+            //rocketList.add(rocket);
+
+            for(Item item : itemsCarried){
+                System.out.println(itemsCarried.size());
+                itemsList.remove(item);
+            }
+        }
+        return rocketList;
+
+//        for (Item item : itemsList){
+//            if(item.getName().equals("colony")){
+//                rocket = new U2();
+//                rocketList.add(rocket);
+//            }
+//            else if(rocket.currentWeight + item.getWeight() > rocket.maxWeight - 3) {
+//                if (item.getWeight() > 4)
+//                    rocket = new U2();
+//                else
+//                    rocket = new U1();
+//                rocketList.add(rocket);
+//            }
+//
+//            rocket.carry(item);
+//        }
+
     }
 
     public int runSimulation(ArrayList<Rocket> rocketsList){
