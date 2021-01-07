@@ -25,4 +25,4 @@ test {
     useJUnitPlatform()
 }
 
-mainClassName = 'fr.ensta.missiontomars.App'
+mainClassName = 'fr.ensta.missiontomars.Main'

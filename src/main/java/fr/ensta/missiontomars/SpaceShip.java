@@ -1,5 +1,8 @@
 package fr.ensta.missiontomars;
 
+/**
+ * Interface SpaceShip
+ */
 public interface SpaceShip {
     public boolean launch();
 

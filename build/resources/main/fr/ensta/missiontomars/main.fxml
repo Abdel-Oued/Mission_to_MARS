@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<!--<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.ensta.missiontomars.Main">-->
+<!--    <padding><Insets bottom="10" left="0" right="0" top="0" /></padding>-->
+<!--    <MenuBar layoutY="-1.0" prefHeight="26.0" prefWidth="144.0">-->
+<!--        <Menu text="Configuration">-->
+<!--            <MenuItem onAction="#handleConfig1" text="U1 uniquement" />-->
+<!--            <MenuItem onAction="#handleConfig2" text="U2 uniquement" />-->
+<!--            <MenuItem onAction="#handleConfig3" text="U1 phase1 &amp; U2 phase2" />-->
+<!--            <MenuItem onAction="#handleConfig4" text="U1 phase2 &amp; U2 phase1" />-->
+<!--            <MenuItem onAction="#handleConfig5" text="U2 pour personnes" />-->
+<!--            <MenuItem onAction="#handleConfig6" text="U2 Optimum" />-->
+<!--        </Menu>-->
+<!--        <Menu text="Run">-->
+<!--            <MenuItem onAction="#runScenario" text="Run" />-->
+<!--        </Menu>-->
+<!--    </MenuBar>-->
+<!--    -->
+<!--    <ImageView fitHeight="174.0" fitWidth="273.0" layoutX="62.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="62.0" AnchorPane.rightAnchor="68.73493957519531" AnchorPane.topAnchor="28.0" BorderPane.alignment="CENTER">-->
+<!--        <image>-->
+<!--            <Image url="@mission_to_mars1.png" />-->
+<!--        </image>-->
+<!--    </ImageView>-->
+<!--    <Label fx:id="welcome" layoutX="67.0" layoutY="187.0" text="Recevez le bonjour des martiens !" textAlignment="CENTER" textFill="#ab1919">-->
+<!--        <font>-->
+<!--            <Font name="System Bold" size="20.0" />-->
+<!--        </font>-->
+<!--    </Label>-->
+<!--    <Label fx:id="resultTitle" alignment="CENTER" contentDisplay="CENTER" layoutX="67.0" layoutY="168.0" prefHeight="26.0" prefWidth="243.0" text="Resultats de la simulation" textAlignment="CENTER" textFill="#ab1919">-->
+<!--        <font>-->
+<!--            <Font name="Impact" size="20.0" />-->
+<!--        </font>-->
+<!--    </Label>-->
+<!--    <Label fx:id="resultText" alignment="CENTER" layoutX="152.0" layoutY="198.0" prefHeight="17.0" prefWidth="55.0" text="ddddddd" textAlignment="CENTER">-->
+<!--        <font>-->
+<!--            <Font name="Impact" size="14.0" />-->
+<!--        </font>-->
+<!--    </Label>-->
+<!--    -->
+<!--</AnchorPane>-->
+
+<VBox alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.ensta.missiontomars.Main">
+    <padding><Insets bottom="10" left="0" right="0" top="0" /></padding>
+    <MenuBar>
+        <Menu text="Configuration">
+            <MenuItem onAction="#handleConfig1" text="U1 uniquement" />
+            <MenuItem onAction="#handleConfig2" text="U2 uniquement" />
+            <MenuItem onAction="#handleConfig3" text="U1 phase1 &amp; U2 phase2" />
+            <MenuItem onAction="#handleConfig4" text="U1 phase2 &amp; U2 phase1" />
+            <MenuItem onAction="#handleConfig5" text="U2 pour personnes" />
+            <MenuItem onAction="#handleConfig6" text="U2 Optimum" />
+        </Menu>
+        <Menu text="Run">
+            <MenuItem onAction="#runScenario" text="Run" />
+        </Menu>
+    </MenuBar>
+   <Button fx:id="runButton" mnemonicParsing="false" onAction="#runScenario" text="Run" visible="false" />
+   <ImageView fx:id="img" fitHeight="400.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" translateY="50.0">
+      <image>
+         <Image url="@mission_to_mars1.png" />
+      </image>
+   </ImageView>
+
+    
+    <Label fx:id="resultTitle" alignment="CENTER" prefHeight="26.0" prefWidth="243.0" text="Resultats de la simulation" textFill="#ab1919" translateY="-25.0" visible="false">
+      <font>
+         <Font name="Impact" size="20.0" />
+      </font></Label>
+    <Label fx:id="welcome" text="Recevez le bonjour des martiens !" textAlignment="CENTER" textFill="#ab1919">
+      <font>
+         <Font name="System Bold" size="20.0" />
+      </font>
+    </Label>
+    <Label fx:id="resultText" alignment="CENTER" textAlignment="CENTER">
+      <font>
+         <Font name="Impact" size="14.0" />
+      </font>
+    </Label>
+</VBox>

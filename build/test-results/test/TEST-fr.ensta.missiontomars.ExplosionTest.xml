@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="fr.ensta.missiontomars.ExplosionTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-01-07T04:47:00" hostname="ODG" time="0.133">
+  <properties/>
+  <testcase name="launchU1Test()" classname="fr.ensta.missiontomars.ExplosionTest" time="0.084"/>
+  <testcase name="launchU2Test()" classname="fr.ensta.missiontomars.ExplosionTest" time="0.048"/>
+  <system-out><![CDATA[949775
+960140
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
