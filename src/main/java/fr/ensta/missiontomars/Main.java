@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 
 /**
  * Classe principale.
- * Point d'entrée de l'application.
+ * Point d'entree de l'application.
  */
 public class Main extends Application {
     static int budgetParfait = 0;
@@ -32,12 +33,18 @@ public class Main extends Application {
 
     @FXML private Label welcome;
     @FXML private Label resultTitle;
+    @FXML private ScrollPane results;
     @FXML private Label resultText;
+    @FXML private Label fleetText;
     @FXML private Button runButton;
     @FXML private ImageView img;
 
     Simulation simulation = new Simulation();
 
+    /**
+     * Methode principale de l'interface.
+     * @param args
+     */
     public static void main(String[] args) {
         launch(args);
     }
@@ -58,79 +65,94 @@ public class Main extends Application {
     }
 
     /**
-     * Méthode qui s'exécute lorsqu'on choisi le scénario 1
+     * Methode qui s'execute lorsqu'on choisi le scenario 1.
+     ** @param event signale un clic.
      */
     @FXML protected void handleConfig1(ActionEvent event) {
         config = 1;
         welcome.setVisible(false);
         resultTitle.setVisible(false);
         resultText.setVisible(false);
+        fleetText.setVisible(false);
         runButton.setVisible(true);
     }
 
     /**
-     * Méthode qui s'exécute lorsqu'on choisi le scénario 2
+     * Methode qui s'execute lorsqu'on choisi le scenario 2.
+     * @param event signale un clic.
      */
     @FXML protected void handleConfig2(ActionEvent event){
         config = 2;
         welcome.setVisible(false);
         resultTitle.setVisible(false);
         resultText.setVisible(false);
+        fleetText.setVisible(false);
         runButton.setVisible(true);
     }
 
     /**
-     * Méthode qui s'exécute lorsqu'on choisi le scénario 3
+     * Methode qui s'execute lorsqu'on choisi le scenario 3.
+     * @param event signale un clic.
      */
     @FXML protected void handleConfig3(ActionEvent event){
         config = 3;
         welcome.setVisible(false);
         resultTitle.setVisible(false);
         resultText.setVisible(false);
+        fleetText.setVisible(false);
         runButton.setVisible(true);
     }
 
     /**
-     * Méthode qui s'exécute lorsqu'on choisi le scénario 4
+     * Methode qui s'execute lorsqu'on choisi le scenario 4.
+     * @param event signale un clic.
      */
     @FXML protected void handleConfig4(ActionEvent event){
         config = 4;
         welcome.setVisible(false);
         resultTitle.setVisible(false);
         resultText.setVisible(false);
+        fleetText.setVisible(false);
         runButton.setVisible(true);
     }
 
     /**
-     * Méthode qui s'exécute lorsqu'on choisi le scénario 5
+     * Methode qui s'execute lorsqu'on choisi le scenario 5
+     * @param event signale un clic.
      */
     @FXML protected void handleConfig5(ActionEvent event){
         config = 5;
         welcome.setVisible(false);
         resultTitle.setVisible(false);
         resultText.setVisible(false);
+        fleetText.setVisible(false);
         runButton.setVisible(true);
     }
 
     /**
-     * Méthode qui s'exécute lorsqu'on choisi le scénario 6
+     * Methode qui s'execute lorsqu'on choisi le scenario 6
+     * @param event signale un clic.
      */
     @FXML protected void handleConfig6(ActionEvent event){
         config = 6;
         welcome.setVisible(false);
         resultTitle.setVisible(false);
         resultText.setVisible(false);
+        fleetText.setVisible(false);
         runButton.setVisible(true);
     }
 
     /**
-     * Méthode qui éffectue la simulation en fonction du scénario choisi.
+     * Methode qui effectue la simulation en fonction du scenario choisi.
+     * Elle cree les listes d'items, cree le convoie de rockets.
+     *  @param event signale un clic.
      */
     @FXML protected void runScenario(ActionEvent event){
 
         welcome.setVisible(false);
         resultTitle.setVisible(false);
         resultText.setVisible(false);
+        fleetText.setVisible(false);
         runButton.setVisible(false);
 
         if(config == 1) {
@@ -222,8 +244,8 @@ public class Main extends Application {
         }
     }
 
-    /**
-     * Méthode qui calcule les résultats de la simulation
+    /**d
+     * Methode qui calcule les resultats de la simulation
      * @param simulation instance de Simulation
      * @param fleet la flotte de rockets de la mission
      */
@@ -236,7 +258,7 @@ public class Main extends Application {
                 nbrReussite += 1;
             }
 
-            // s'il y a un seul échec
+            // s'il y a un seul echec
             if (budget == budgetParfait + 100 || budget == budgetParfait + 120){
                 nbrUnSeulEchec += 1;
             }
@@ -247,14 +269,14 @@ public class Main extends Application {
     }
 
     /**
-     * Méthode qui affiche les résultats de la simulation
+     * Methode qui affiche les resultats de la simulation
      * @param pourcentageReussite
-     * @param pourcentageUnSeulEchec pourcentage qu'il ait un seul échec
-     * @param budgetParfait budget s'il n'y a aucun échec
+     * @param pourcentageUnSeulEchec pourcentage qu'il ait un seul echec
+     * @param budgetParfait budget s'il n'y a aucun echec
      */
     public void displayResults(int pourcentageReussite, int pourcentageUnSeulEchec, int budgetParfait){
         resultTitle.setVisible(true);
-        resultText.setText("Avec cette configuration on obtient les estimations suivantes" +
+        resultText.setText(
                 "\nPourcentage de reussite : " + pourcentageReussite +
                 "\nPourcentage d'avoir un seul echec : " + pourcentageUnSeulEchec +
                 "\nbudget en cas de reussite = " + budgetParfait);
@@ -264,20 +286,27 @@ public class Main extends Application {
     }
 
     /**
-     * Méthode qui affiche les rockets et leur poids
+     * Methode qui affiche les rockets et leur poids
      * @param fleet flotte de rockets de la mission
      */
     public void displayFleet(ArrayList<Rocket> fleet){
         int i = 1;
         budgetParfait = 0;
+        StringBuilder fleetTotal = new StringBuilder();
+        fleetTotal = fleetTotal.append("Convoit de rockets\n\n");
         for (Rocket rocket : fleet) {
             budgetParfait += rocket.cost;    // c'est le budget s'il n'y a aucune explosion
             if(rocket.cost == 100)
-                System.out.println("U1 " + i + " = " + rocket.currentWeight);
+                fleetTotal = fleetTotal.append("U1 " + i + " = " + rocket.currentWeight + "\t\t");
             else
-                System.out.println("U2 " + i + " = " + rocket.currentWeight);
+                fleetTotal = fleetTotal.append("U2 " + i + " = " + rocket.currentWeight + "\t\t");
+
+            if(i%2 ==0) fleetTotal = fleetTotal.append("\n");
+
             i++;
         }
+        fleetText.setVisible(true);
+        fleetText.setText(String.valueOf(fleetTotal));
     }
 
 }

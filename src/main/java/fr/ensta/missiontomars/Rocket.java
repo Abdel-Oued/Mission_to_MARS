@@ -1,7 +1,7 @@
 package fr.ensta.missiontomars;
 
 /**
- * Classe de rocket
+ * Classe de rocket.
  */
 public class Rocket implements SpaceShip {
     protected int cost;
@@ -18,38 +18,38 @@ public class Rocket implements SpaceShip {
     public Rocket(int weight, int maxWeight, int cost) {
         this.weight = weight;
         this.maxWeight = maxWeight;
-        this.currentWeight = weight;  // A la création, la rocket est vide
+        this.currentWeight = weight;  // A la creation, la rocket est vide
         this.cost = cost;
     }
 
     /**
-     * Méthode qui indique le résultat lancement
-     * @return vrai (true) si le lancement à réussi ou faux (false) sinon
+     * Methode qui indique le resultat lancement.
+     * @return vrai (true) si le lancement a reussi ou faux (false) sinon
      */
     public boolean launch(){
         return true;
     }
 
     /**
-     * Méthode qui indique le résultat d'un atterrissage
-     * @return vrai (true) si le l'atterrissage à réussi ou faux (false) sinon
+     * Methode qui indique le resultat d'un atterrissage.
+     * @return vrai (true) si le l'atterrissage a reussi ou faux (false) sinon
      */
     public boolean land(){
         return true;
     }
 
     /**
-     * Méthode qui indique si un item peut être pris
-     * @param item item testé
-     * @return vrai (true) si l'item peut être pris ou faux (false) sinon
+     * Methode qui indique si un item peut etre pris
+     * @param item item teste
+     * @return vrai (true) si l'item peut etre pris ou faux (false) sinon
      */
     public boolean canCarry(Item item){
         return this.currentWeight + item.getWeight() <= this.maxWeight;
     }
 
     /**
-     * Méthode qui ajoute un item au cargo
-     * @param item item à ajouter au cargo
+     * Methode qui ajoute un item au cargo
+     * @param item item a ajouter au cargo
      */
     public void carry(Item item){
         if(canCarry(item)) this.currentWeight = this.currentWeight + item.getWeight();
