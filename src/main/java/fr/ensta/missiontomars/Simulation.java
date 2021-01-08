@@ -97,7 +97,7 @@ public class Simulation {
                 rocketList.add(rocket2);
             }
             else if(rocket1.currentWeight + item.getWeight() > rocket1.maxWeight - 3) {
-                if (item.getWeight() > 6) {
+                if (item.getWeight() > 5) {
                     rocket2 = new U2();
                     rocket2.carry(item);
                     rocketList.add(rocket2);
@@ -118,7 +118,7 @@ public class Simulation {
     /**
      * Methode qui crée des rockets U2 et les charges avec les items d'une liste d'items.
      * Le chargement est fait de sorte qu'aucune rocket ne soit pleine.
-     * De plus, une rocket transportant des personnes ne transporte que des personnes.
+     * De plus, une rocket transportant des personnes ne transportera que des personnes.
      * @param itemsList liste des items
      * @return u1List liste des rockets U2 crees et chargees
      */
@@ -135,14 +135,14 @@ public class Simulation {
             // parcourir la liste d'items non encore transportes
             for (Item item : itemsList){
                 // si la rocket prend l'item, son poids va depasser un seuil,
-                // dans ce cas, essayer l'item suivant en quittant la boucle for
+                // dans ce cas, essayer l'item suivant en quittant la boucle for.
                 if(rocket.currentWeight + item.getWeight() > rocket.maxWeight - 3) {
                     continue;
                 }
 
                 // si on tombe sur des personnes et que la rocket est vide,
                 // alors on les transporte et qui la boucle while pour creer
-                // une autre rocket
+                // une autre rocket.
                 if(item.getName().equals("colony") & rocket.currentWeight == rocket.weight){
                     rocket.carry(item);
                     itemsCarried.add(item);
@@ -167,7 +167,7 @@ public class Simulation {
 
     /**
      * Methode qui tente de lancer chaque rocket presente dans une liste de rockets jusqu'a ce que le lancement reussisse.
-     * @param rocketsList liste des rockets a lancer
+     * @param rocketsList liste des rockets a lancer.
      * @return budget budget total pour envoyer toutes les rockets (inclut les crashs et explosions)
      */
     public int runSimulation(ArrayList<Rocket> rocketsList){

@@ -41,13 +41,13 @@
     </Label>
    <Button fx:id="runButton" onAction="#runScenario" text="Run" visible="false" />
 
-   <HBox prefHeight="192.0" prefWidth="800.0">
+   <HBox prefHeight="222.0" prefWidth="800.0">
        <Label fx:id="resultText" alignment="CENTER" contentDisplay="CENTER" minWidth="200.0" prefWidth="400.0" text="vccvxccbv" textAlignment="CENTER" visible="false">
            <font>
                <Font name="Impact" size="14.0" />
            </font>
        </Label>
-       <Label fx:id="fleetText" alignment="CENTER" contentDisplay="CENTER" minWidth="200.0" prefWidth="400.0" text="gghgh" textAlignment="CENTER" translateY="-15.0" visible="false">
+       <Label fx:id="fleetText" alignment="CENTER" contentDisplay="CENTER" minWidth="200.0" prefWidth="400.0" text="gghgh" textAlignment="CENTER" translateY="-40.0" visible="false">
            <font>
                <Font name="Impact" size="14.0" />
            </font>

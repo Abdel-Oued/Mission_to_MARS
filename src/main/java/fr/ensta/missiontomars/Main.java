@@ -245,7 +245,7 @@ public class Main extends Application {
     }
 
     /**d
-     * Methode qui calcule les resultats de la simulation
+     * Methode qui fait les appels à runSimulation puis calcules staistiques
      * @param simulation instance de Simulation
      * @param fleet la flotte de rockets de la mission
      */
